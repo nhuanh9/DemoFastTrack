@@ -1,0 +1,21 @@
+version: '3'
+services:
+  spring-app:
+    image: my-spring-app:1.0
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/datn
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 123456
+  mysql-db:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: datn
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 123456

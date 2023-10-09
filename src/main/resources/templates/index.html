@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .head {
+            display: flex;
+        }
+        .logo {
+            width: 30%;
+            height: 300px;
+            margin: 5px;
+            overflow: hidden;
+        }
+        .logo img {
+            width: 100%;
+        }
+        .banner {
+            width: 70%;
+            height: 300px;
+            margin: 5px;
+            overflow: hidden;
+        }
+        .banner img {
+            width: 100%;
+        }
+        .menu {
+            display: flex;
+            margin: 5px;
+            height: 50px;
+            background: antiquewhite;
+            line-height: 50px;
+        }
+        .menu-item {
+            padding: 0 20px;
+            transition: 0.4s;
+        }
+        .menu-item:hover {
+            background: bisque;
+            border-bottom: 2px solid blue;
+            transform: scale(1.2);
+        }
+        .list{
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        .list-item{
+            width: calc(25% - 10px);
+            height: 400px;
+            margin: 5px;
+        }
+        .list-item img{
+            width: 100%;
+            height: 80%;
+        }
+    </style>
+</head>
+<body>
+<div class="head">
+    <div class="logo">
+        <img src="https://tl.cdnchinhphu.vn/344445545208135680/2023/7/4/4324242-16884404103211073178352.jpg" alt="">
+    </div>
+    <div class="banner">
+        <img src="https://images2.thanhnien.vn/Uploaded/trucdl/2022_09_17/blackpinkbornpinkcanqquetbangxephang12-211.jpeg" alt="">
+    </div>
+</div>
+<div class="menu">
+    <div class="menu-item">Home</div>
+    <div class="menu-item">List Car</div>
+    <div class="menu-item">List Bike</div>
+    <div class="menu-item"><a href="/add-car">Add Car</a></div>
+    <div class="menu-item">Add Bike</div>
+</div>
+<div class="list">
+    <div  class="list-item" th:each="car: ${listCar}">
+        <img th:src="${car.img}" alt="">
+        <h2 th:text="${car.name}"></h2>
+        <p th:text="${car.price}"></p>
+    </div>
+</div>
+</body>
+</html>
